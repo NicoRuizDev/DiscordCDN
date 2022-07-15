@@ -1,0 +1,16 @@
+{
+    "api": {
+        "token": "Termuibabjfgbnggggg",
+        "_comment": "Dont change *stObj, Unless You dont know about it!"
+    },
+    "app": {
+        "PORT": 6969,
+        "appLink": "http://localhost",
+        "appName": "Content Delivery Network",
+        "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4"
+    },
+    "display_embed": {
+        "title": ["CDN | DNxRG Hosting", "Content Delivery Network | DNxRG Hosting"],
+        "description": ["Nothing is free", "Nothing is free"]
+    }
+}
