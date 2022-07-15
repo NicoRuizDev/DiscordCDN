@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<link>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="" />
+<link href="/css/api_docs.css" rel="stylesheet" />
+</head>
+
+<body>
+  <div class="center-container">
+    <div class="container">
+      <code class="curl-post" >curl --form myFile='@path/to/file' <%= app_link %>/api/upload</code>
+      <p class="para">This can be used in Linux Based Also!</p>
+      <br>
+      <code class="curl-post" >multipart/form-data with formName = myFile</code>
+      <br>
+      <br>
+      <br>
+      <code class="curl-post" >{"ERROR": "No Files Specified"}</code>
+      <p class="para" >This what is Returns when there is no file specified with status code 404!</p>
+      <br>
+      <br>
+      <br>  
+      <div class="curl-post2">
+        <code>{files: {</code>
+        <br>
+        <code>"fileLink": "<%= app_link %>/files/LOL.jpeg",</code>
+        <br>
+        <code>"fileSize": "4000 Megabytes",</code>
+        <br>
+        <code>"fileName": "LOL.jpeg"</code>
+        <br>
+        <code>}}</code>
+      </div>
+      <p class="para" >This what is Returns after Uploading the File with status code 200!</p>
+      <br>
+      <p class="para">The multipart/form-data is only accepted via sharex or any other uploaders!</p>
+      <p class="para">form name is equals to 'myFile'</p>
+      <a href="https://storage.dnxrg.net/files/ShcbQMsJIjsuwWxw06Ik.png" target="_blank" rel="noopener noreferrer">Click here for sharex example</a>
+    </div>
+  </div>
+</body>
+
+<footer>
+  <div class="footer">
+    <p class="footerText"> <a class="footerText" href="/" rel="noopener noreferrer">Back to Homepage</a></p>
+  </div>
+</footer>
+
+</html>
