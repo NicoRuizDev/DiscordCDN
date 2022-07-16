@@ -105,11 +105,11 @@ _Below is an example of how you can instruct your audience on installing and set
    ```sh
    npm install
    ```
-5. Enter your Configuration in `settings.json`
-   `PORT`: The application port you want to use
-   `appLink`: Link of your website with https:// or http:// and without port
-   `appName`: Name of your application
-   `appFavicon`: Favicon used to be in website
+5. Enter your Configuration in `settings.json`<br>
+   `PORT`: The application port you want to use<br>
+   `appLink`: Link of your website with https:// or http:// and without port<br>
+   `appName`: Name of your application<br>
+   `appFavicon`: Favicon used to be in website<br>
 
   
 7. Start Application
