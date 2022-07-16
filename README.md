@@ -25,7 +25,6 @@
 <br />
 <div align="center">
   
-
   <h3 align="center">DiscordCDN</h3>
 
   <p align="center">
