@@ -92,20 +92,19 @@ To get a local copy up and running follow these simple example steps.
 
 _Below is an example of how you can instruct your audience on installing and setting up your app._
 
-1. Get Pterodactyl API Key at [https:// < Panel Link > /admin/api]
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/NicoRuizDev/DiscordCDN.git
    ```
-3. Go to DiscordCDN directory
+2. Go to DiscordCDN directory
    ```sh
    cd DiscordCDN
    ```
-4. Install NPM packages
+3. Install NPM packages
    ```sh
    npm install
    ```
-5. Enter your Configuration in `settings.json`<br>
+4. Enter your Configuration in `settings.json`<br>
    `PORT`: The application port you want to use<br>
    `appLink`: Link of your website with https:// or http:// and without port<br>
    `appName`: Name of your application<br>
@@ -114,8 +113,8 @@ _Below is an example of how you can instruct your audience on installing and set
    `description`: Description to be used on Embed Images<br>
 
   
-7. Start Application
- ```sh
+5. Start Application
+   ```sh
    npm start
    ```
 
