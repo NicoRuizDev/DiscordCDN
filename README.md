@@ -75,7 +75,7 @@ This project is maded to make your work easier on Pterodactyl. It can delete ser
 
 ### Built With
 
-* [NodeJs v16](https://nodejs.org)
+* [NodeJs v14](https://nodejs.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -90,7 +90,7 @@ To get a local copy up and running follow these simple example steps.
 
 ### Installation
 
-_Below is an example of how you can instruct your audience on installing and setting up your app._
+_Below is an example of how you can instruct your audience on installing and setting up your app. This app is tested on NodeJs v14.19.3_
 
 1. Clone the repo
    ```sh
