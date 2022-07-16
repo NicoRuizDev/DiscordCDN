@@ -26,10 +26,10 @@
 <div align="center">
   
 
-  <h3 align="center">PteroDeleter</h3>
+  <h3 align="center">DiscordCDN</h3>
 
   <p align="center">
-    A Server / User deleter made for Pterodactyl !
+    A CDN which can be used to display embed images on Discord!
     <br />
     <a href="https://github.com/NicoRuizDev/DiscordCDN"><strong>Explore the docs »</strong></a>
     <br />
@@ -133,9 +133,9 @@ If you have a suggestion that would make this better, please fork the repo and c
 Don't forget to give the project a star! Thanks again!
 
 1. Fork the Project
-2. Create your Feature Branch (`git checkout -b NicoRuizDev/DiscordChatBot`)
-3. Commit your Changes (`git commit -m 'Add some Chat-Bot'`)
-4. Push to the Branch (`git push origin NicoRuizDev/DiscordChatBot`)
+2. Create your Feature Branch (`git checkout -b NicoRuizDev/DiscordCDN`)
+3. Commit your Changes (`git commit -m 'Add some DiscordCDN'`)
+4. Push to the Branch (`git push origin NicoRuizDev/DiscordCDN`)
 5. Open a Pull Request
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -154,7 +154,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/NicoRuizDev/PteroDeleter](https://github.com/NicoRuizDev/PteroDeleter)
+Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/NicoRuizDev/PteroDeleter)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -173,14 +173,14 @@ Project Link: [https://github.com/NicoRuizDev/PteroDeleter](https://github.com/N
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/NicoRuizDev/PteroDeleter.svg?style=for-the-badge
-[contributors-url]: https://github.com/NicoRuizDev/PteroDeleter/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/NicoRuizDev/PteroDeleter.svg?style=for-the-badge
-[forks-url]: https://github.com/NicoRuizDev/PteroDeleter/network/members
-[stars-shield]: https://img.shields.io/github/stars/NicoRuizDev/PteroDeleter.svg?style=for-the-badge
-[stars-url]: https://github.com/NicoRuizDev/PteroDeleter/stargazers
-[issues-shield]: https://img.shields.io/github/issues/NicoRuizDev/PteroDeleter.svg?style=for-the-badge
-[issues-url]: https://github.com/NicoRuizDev/DiscordChatBot/issues
-[license-shield]: https://img.shields.io/github/license/NicoRuizDev/PteroDeleter.svg?style=for-the-badge
-[license-url]: https://github.com/NicoRuizDev/PteroDeleter/blob/master/LICENSE.txt
+[contributors-shield]: https://img.shields.io/github/contributors/NicoRuizDev/DiscordCDN.svg?style=for-the-badge
+[contributors-url]: https://github.com/NicoRuizDev/DiscordCDN/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/NicoRuizDev/DiscordCDN.svg?style=for-the-badge
+[forks-url]: https://github.com/NicoRuizDev/DiscordCDN/network/members
+[stars-shield]: https://img.shields.io/github/stars/NicoRuizDev/DiscordCDN.svg?style=for-the-badge
+[stars-url]: https://github.com/NicoRuizDev/DiscordCDN/stargazers
+[issues-shield]: https://img.shields.io/github/issues/NicoRuizDev/DiscordCDN.svg?style=for-the-badge
+[issues-url]: https://github.com/NicoRuizDev/DiscordCDN/issues
+[license-shield]: https://img.shields.io/github/license/NicoRuizDev/DiscordCDN.svg?style=for-the-badge
+[license-url]: https://github.com/NicoRuizDev/DiscordCDN/blob/master/LICENSE.txt
 [product-screenshot]: images/screenshot.png
