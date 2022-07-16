@@ -110,6 +110,8 @@ _Below is an example of how you can instruct your audience on installing and set
    `appLink`: Link of your website with https:// or http:// and without port<br>
    `appName`: Name of your application<br>
    `appFavicon`: Favicon used to be in website<br>
+   `title`: Title to be used on Embed Images<br>
+   `description`: Description to be used on Embed Images<br>
 
   
 7. Start Application
