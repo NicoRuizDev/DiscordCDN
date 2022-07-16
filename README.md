@@ -62,11 +62,11 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-This project is maded to make your work easier on Pterodactyl. It can delete servers / users from Pterodactyl. This removes the server data too from the node. So that you won't suffer from Disk Problem. In this project you can select either delete admin servers or non-admin servers. This scripts needs a Administrator Admin API Key to delete the servers. That's it! Enjoy!
+This project is maded to make your work easier on Discord. It can easily share files with professional cdn images. This is free to use for private purposes might get copyright issues if you removed the credits. Everything is designed using Material KIT (Thanks for making such a resource, saved alot of time). Make sure to star the directory if you liked our this type of project. Thanks, below is a sneaky peak of the website
 
 
 <div align="center">
-<img src="https://i.imgur.com/zQkI9hs.png" alt="Demo" width="512" height="200">
+<img src="https://i.imgur.com/Kcxquj9.png" alt="Demo" width="512" height="200">
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -153,7 +153,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/NicoRuizDev/PteroDeleter)
+Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/NicoRuizDev/DiscordCDN)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -163,7 +163,7 @@ Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/Nic
 ## Acknowledgments
 
 * [Choose an Open Source License](https://choosealicense.com)
-* [NodeJs v16](https://nodejs.org)
+* [NodeJs v14](https://nodejs.org)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
