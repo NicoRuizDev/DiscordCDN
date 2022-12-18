@@ -4,7 +4,7 @@
         "_comment": "Dont change *stObj, Unless You dont know about it!"
     },
     "app": {
-        "PORT": 6969,
+        "PORT": 80,
         "appLink": "http://cdn.nicoruiz.dev",
         "appName": "Content Delivery Network",
         "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4"
