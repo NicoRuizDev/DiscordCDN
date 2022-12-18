@@ -7,7 +7,7 @@
         "PORT": 80,
         "appLink": "http://cdn.nicoruiz.dev",
         "appName": "Content Delivery Network",
-        "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4"
+        "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4" 
     },
     "display_embed": {
         "title": ["NicoRuizDev/DiscordCDN", "Content Delivery Network | NicoRuizDev"],
