@@ -5,7 +5,7 @@
     },
     "app": {
         "PORT": 6969,
-        "appLink": "http://localhost",
+        "appLink": "http://cdn.nicoruiz.dev",
         "appName": "Content Delivery Network",
         "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4"
     },
