@@ -33,7 +33,7 @@
     <a href="https://github.com/NicoRuizDev/DiscordCDN"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/NicoRuizDev/DiscordCDN">View Demo</a>
+    <a href="https://cdn.nicoruiz.dev">View Demo</a>
     ·
     <a href="https://github.com/NicoRuizDev/DiscordCDN/issues">Report Bug</a>
     ·
