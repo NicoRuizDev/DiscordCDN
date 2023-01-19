@@ -80,42 +80,10 @@ This project is maded to make your work easier on Discord. It can easily share f
 
 
 
-<!-- GETTING STARTED -->
-## Getting Started
+<!-- DOCUMENTATION -->
+## Documentation
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
-
-
-### Installation
-
-_Below is an example of how you can instruct your audience on installing and setting up your app. This app is tested on NodeJs v14.19.3_
-
-1. Clone the repo
-   ```sh
-   git clone https://github.com/NicoRuizDev/DiscordCDN.git
-   ```
-2. Go to DiscordCDN directory
-   ```sh
-   cd DiscordCDN
-   ```
-3. Install NPM packages
-   ```sh
-   npm install
-   ```
-4. Enter your Configuration in `settings.json`<br>
-   `PORT`: The application port you want to use<br>
-   `appLink`: Link of your website with https:// or http:// and without port<br>
-   `appName`: Name of your application<br>
-   `appFavicon`: Favicon used to be in website<br>
-   `title`: Title to be used on Embed Images<br>
-   `description`: Description to be used on Embed Images<br>
-
-  
-5. Start Application
-   ```sh
-   npm start
-   ```
+Documentation of cdn is hosted on our documentation page: [https://docs.nicoruiz.dev/docs/category/discordcdn](https://docs.nicoruiz.dev/docs/category/discordcdn)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
