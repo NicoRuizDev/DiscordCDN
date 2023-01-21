@@ -83,7 +83,7 @@ This project is maded to make your work easier on Discord. It can easily share f
 <!-- DOCUMENTATION -->
 ## Documentation
 
-Documentation of cdn is hosted on our documentation page: [https://docs.nicoruiz.dev/](https://docs.nicoruiz.dev/docs/category/discordcdn)
+Documentation of cdn is hosted on our documentation page: [https://docs.nicoruiz.dev/](https://docs.nicoruiz.dev/)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
