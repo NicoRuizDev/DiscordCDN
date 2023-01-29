@@ -7,32 +7,35 @@ const getHandler = require('./api/get/handler.js')
 const postHandler = require('./api/post/handler.js')
 
 
-//Reading Settings Files
+// Read settings file
 const JsonAfterReading = fs.readFileSync('./settings.json')
 const jsonData = JSON.parse(JsonAfterReading);
 const realToken = `Bearer ${jsonData.api.token}`
 const port = jsonData.app.PORT
 
-
+// Set the view engine and view directory
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, '/'));
 
+// Use the fileUpload middleware
 app.use(fileUpload());
 
+// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
+// Serve static files from the 'assets' directory
 app.use('/assets', express.static('assets'));
 
-
-
+// Route for the root path
 app.get('/', function (req, res) {
+    // Function to generate a random number between two values
     function getRandomNumberBetween(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
     }
 
     let titleJ = jsonData.display_embed.title;
 
-    //getting total size of Uploaded Files
+    // Function to get the total size of files in a directory
     const getAllFiles = function (dirPath, arrayOfFiles) {
         files = fs.readdirSync(dirPath)
 
@@ -61,6 +64,7 @@ app.get('/', function (req, res) {
         return totalSize
     }
 
+    // Function to convert bytes to a human-readable size
     const convertBytes = function (bytes) {
         const sizes = ["Bytes", "KB", "MB", "GB", "TB"]
 
@@ -97,7 +101,7 @@ app.get('/api-docs', (req, res) => {
     })
 })
 
-//api section
+
 app.post('/upload', (req, res) => {
     if (!req.files) {
         res.status(404);
@@ -207,6 +211,7 @@ app.post('/api/upload', (req, res) => {
 
 
     let filesize = Math.round(req.files.myFile.size / 1e+6) + " Megabytes";
+    let appPort = jsonData.app.PORT;
     filesize === "0 Megabytes" ? filesize = Math.round(req.files.myFile.size / 1000) + " Kilobytes" :
         // res.redirect('/uploads/' + DecidedFileName + '.' + extension);
         res.status(200);
@@ -284,9 +289,9 @@ app.get('/files/*', (req, res) => {
                 app_link: jsonData.app.appLink,
                 title: titleJ[getRandomNumberBetween(0, titleJ.length - 1)],
                 description: descriptionJ[getRandomNumberBetween(0, descriptionJ.length - 1)]
-            })         
-                
-            
+            })
+
+
 
         } else {
             res.status(404);
