@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>
+    <%= appName %>
+  </title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="assets/logo.ico" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Valera - v4.10.0
+  * Template URL: https://bootstrapmade.com/valera-free-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<body>
+  <script>
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="d-flex align-items-center header-inner-pages">
+    <div class="container-fluid d-flex align-items-center justify-content-lg-between">
+
+      <h1 class="logo me-auto me-lg-0"><a href="/">
+          <%= appName %>
+        </a></h1>
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar order-last order-lg-0">
+        <ul>
+          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto" target="_blank" href="https://docs.nicoruiz.dev">Docs</a></li>
+          <li><a class="nav-link scrollto" target="_blank" href="https://github.com/NicoRuizDev/DiscordCDN">GitHub</a>
+          </li>
+          <li><a class="nav-link scrollto " target="_blank" href="<%= discordInvite %>">Discord</a></li>
+          <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav><!-- .navbar -->
+
+      <div class="header-social-links d-flex align-items-center">
+        <a href="<%= twitterInvite %>" class="twitter"><i class="bi bi-twitter"></i></a>
+        <a href="<%= facebookInvite %>" class="facebook"><i class="bi bi-facebook"></i></a>
+        <a href="<%= instagramInvite %>" class="instagram"><i class="bi bi-instagram"></i></a>
+        <a href="<%= linkedinInvite %>" class="linkedin"><i class="bi bi-linkedin"></i></i></a>
+      </div>
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="card text-center">
+        <div class="alert alert-success" role="alert">
+          Successfully Uploaded
+        </div>
+        <div class="card-header">
+          Image Details
+        </div>
+        <div class="card" style="width: 100%; text-align: center;">
+          <img src="<%= uploadLink %>" class="" style="width: 20%; margin-left: auto; margin-right: auto;">
+          <div class="card-body">
+            <h5 class="card-title">Image Preview</h5>
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <div class="card"
+              style="width: 30rem; margin-left: auto; margin-right: auto; margin-top: 15px; margin-bottom: 15px;">
+              <div class="card-body">
+                <p class="card-text">Below are the Details of the Image:
+                </p>
+              </div>
+              <ul style="text-align: left;" class="list-group list-group-flush">
+                <li class="list-group-item">File Name - <%= fileName %>
+                </li>
+                <li class="list-group-item">Link - <a href="<%= fileLink %>" target="_blank">
+                    <%= fileLink %>
+                </li>
+                <li class="list-group-item">Size - <%= fileSize %>
+                </li>
+              </ul>
+              <div class="card-body">
+                <a href="#" onclick="navigator.clipboard.writeText('<%= fileLink %>');" class="card-link"
+                  class="card-link">Copy
+                  link</a>
+                <a class="card-link" href="/" class="card-link">Upload Another</a>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
+    </section><!-- End Breadcrumbs -->
+
+  </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
+  <footer id="footer">
+
+    <div class="footer-top">
+
+      <div class="container">
+
+        <div class="row  justify-content-center">
+          <div class="col-lg-6">
+            <h3>
+              <%= appName %>
+            </h3>
+            <p>And either he who flees them is nothing. With great physical effort, choosing a flight is often the most
+              convenient please.</p>
+          </div>
+        </div>
+
+        <div class="row footer-newsletter justify-content-center">
+          <div class="col-lg-6">
+            <form action="/subscribe" method="post">
+              <input type="email" name="email" placeholder="Enter your Email" aria-describedby="emailHelp"
+                required><input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>
+            DevelopersSwitch
+          </span></strong> All Rights Reserved
+      </div>
+      <div class="credits">
+        Made with ❤️ by <a href="https://github.com/NicoRuizDev">NicoRuizDev</a>
+      </div>
+    </div>
+  </footer><!-- End Footer -->
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

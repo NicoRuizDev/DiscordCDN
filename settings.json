@@ -1,16 +1,23 @@
 {
     "api": {
-        "token": "Termuibabjfgbnggggg",
-        "_comment": "Dont change *stObj, Unless You dont know about it!"
+        "apiToken": "YfZFAFunQa4kUy5e"
     },
     "app": {
-        "PORT": 80,
+        "appPort": 80,
         "appLink": "http://localhost",
-        "appName": "Content Delivery Network",
-        "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4" 
+        "appName": "Discord CDN",
+        "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4",
+        "webhookURL": "https://discord.com/api/webhooks/1071138758759559168/srkPe4xG-RxuKdrAuvTz8TtjUyDvzHU6c628FophxN_Yl1Ts0cWGDAJ_b-fF1tILtWS7"
     },
-    "display_embed": {
-        "title": ["NicoRuizDev/DiscordCDN", "Content Delivery Network | NicoRuizDev"],
-        "description": ["Nothing is free", "Nothing is free"]
+    "social": {
+        "discord": "https://discord.gg/XraBC45vs2",
+        "twitter": "https://twitter.com",
+        "facebook": "https://facebook.com",
+        "instagram": "https://instagram.com",
+        "linkedin": "https://linkedin.com"
+    },
+    "embed": {
+        "title": ["Imagination is more important than knowledge.", "Be the change you wish to see in the world.","Innovation distinguishes between a leader and a follower.","Darkness cannot drive out darkness; only light can do that. Hate cannot drive out hate; only love can do that."],
+        "description": ["A statement emphasizing the value of creative thinking over rote memorization and facts.", "A call to action to create positive change by leading by example.","A recognition of the importance of creativity and risk-taking in driving progress and success.", "A call for non-violent resistance and a belief in the power of love and compassion to overcome hatred and oppression."]
     }
 }
