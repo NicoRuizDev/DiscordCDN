@@ -65,7 +65,7 @@ This project is maded to make your work easier on Discord. It can easily share f
 
 
 <div align="center">
-<img src="https://media.discordapp.net/attachments/1063448071167553568/1071423017646829628/image.png?width=970&height=584" alt="Demo" width="880" height="532">
+<img src="https://media.discordapp.net/attachments/1063448071167553568/1071423386108055613/image.png?width=972&height=584" alt="Demo" width="972" height="584">
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
