@@ -4,7 +4,7 @@
     },
     "app": {
         "appPort": 80,
-        "appLink": "http://localhost",
+        "appLink": "http://cdn.nicoruiz.dev",
         "appName": "Discord CDN",
         "appFavicon": "https://avatars.githubusercontent.com/u/77137417?v=4",
         "webhookURL": "https://discord.com/api/webhooks/1071138758759559168/srkPe4xG-RxuKdrAuvTz8TtjUyDvzHU6c628FophxN_Yl1Ts0cWGDAJ_b-fF1tILtWS7"

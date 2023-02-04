@@ -6,6 +6,8 @@ const path = require("path");
 const fs = require("fs");
 const axios = require("axios");
 const bodyParser = require("body-parser");
+const IP = require("ip");
+const ipAddress = IP.address();
 
 // Read settings file
 const config = fs.readFileSync("./settings.json");
@@ -25,30 +27,27 @@ const instagramInvite = settings.social.instagram;
 const linkedinInvite = settings.social.linkedin;
 
 app.use(cors());
-// Set the view engine and view directory
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/"));
-
-// Use the fileUpload middleware
 app.use(fileUpload());
-
-// Use the express.json
 app.use(express.json());
-
-// Serve static files from the 'public' directory
 app.use(express.static(path.join(__dirname, "public")));
-
-// Serve static files from the 'assets' directory
 app.use("/assets", express.static("assets"));
-
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-// Route for the root path
 app.get("/", (req, res) => {
-  // Set the response status to 200 (OK)
   res.status(200);
-  // Render the "views/index" template, passing in appName and appFavicon as data
+  const data = {
+    embeds: [
+      {
+        title: "User Connected (/index)",
+        color: 0xff0000,
+        description: "IP - " + "||" + ipAddress + "||",
+      },
+    ],
+  };
+  axios.post(webhookUrl, data);
   res.render("views/index", {
     appName: appName,
     appFavicon: appFavicon,
@@ -63,10 +62,17 @@ app.get("/", (req, res) => {
 app.post("/subscribe", (req, res) => {
   if (req.method === "POST") {
     const email = req.body.email;
+    const data = {
+      embeds: [
+        {
+          title: "Email Recieved (Subscription):",
+          color: 0xff0000,
+          description: "Email - " + "`" + email + "`",
+        },
+      ],
+    };
     axios
-      .post(webhookUrl, {
-        content: `Received email: ${email}`,
-      })
+      .post(webhookUrl, data)
       .then(() => {
         res.redirect("/");
       })
@@ -78,7 +84,6 @@ app.post("/subscribe", (req, res) => {
   }
 });
 
-// A function to authenticate with API
 const authenticate = (req, res, next) => {
   const authorizationHeader = req.headers["x-api-token"];
   if (!authorizationHeader || authorizationHeader !== apiToken) {
@@ -87,19 +92,16 @@ const authenticate = (req, res, next) => {
   next();
 };
 
-// The POST endpoint "/upload"
 app.get("/upload", (req, res) => {
   res.redirect("/");
 });
 app.post("/upload", (req, res) => {
-  // If there are no files in the request, return a 404 error
   if (!req.files) {
     res.status(404);
     res.render("views/404");
     return;
   }
 
-  // A function to generate a random string of a specified length
   function generateString(length) {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -111,15 +113,12 @@ app.post("/upload", (req, res) => {
     return result;
   }
 
-  // Get the original name of the file and its extension
   let fileName = req.files.myFile.name;
   let splitter = fileName.split(".");
   let extension = splitter[splitter.length - 1];
 
-  // Generate a random string for the file name
   let DecidedFileName = generateString(20);
 
-  // Move the uploaded file to the "./public/uploads" directory with the decided file name
   req.files.myFile.mv(
     "./public/uploads/" + DecidedFileName + "." + extension,
     (error) => {
@@ -127,23 +126,18 @@ app.post("/upload", (req, res) => {
     }
   );
 
-  // Calculate the file size in MB or KB
   let filesize = Math.round(req.files.myFile.size / 1e6) + " Megabytes";
 
-  // If the file size is 0 MB, calculate it in KB instead
   if (filesize === "0 Megabytes") {
     filesize = Math.round(req.files.myFile.size / 1000) + " Kilobytes";
   } else {
     res.status(200);
   }
 
-  // Check the app port number
   if (appPort === 80 || appPort === 443) {
-    // If app port is 80, create file link without port
     let fileLink = appLink + "/files/" + DecidedFileName + "." + extension;
     let uploadLink = appLink + "/uploads/" + DecidedFileName + "." + extension;
 
-    // Render the success page with file link, size, name, app favicon and name
     res.render("views/success.ejs", {
       uploadLink: uploadLink,
       fileLink: fileLink,
@@ -157,12 +151,25 @@ app.post("/upload", (req, res) => {
       instagramInvite: instagramInvite,
       linkedinInvite: linkedinInvite,
     });
+    const data = {
+      embeds: [
+        {
+          title: "User Uploaded an file (/upload)",
+          color: 0xff0000,
+          description: "User IP - " + "||" + ipAddress + "||",
+          image: {
+            url: uploadLink,
+          },
+        },
+      ],
+    };
+    axios.post(webhookUrl, data);
   } else {
-    // If app port is neither 80 nor 443, create file link with port
     let fileLink =
       appLink + ":" + appPort + "/files/" + DecidedFileName + "." + extension;
+    let uploadLink =
+      appLink + ":" + appPort + "/uploads/" + DecidedFileName + "." + extension;
 
-    // Render the success page with file link, size, name, app favicon and name
     res.render("views/success.ejs", {
       fileLink: fileLink,
       fileSize: filesize,
@@ -171,18 +178,29 @@ app.post("/upload", (req, res) => {
       appName: appName,
       discordInvite: discordInvite,
     });
+    const data = {
+      embeds: [
+        {
+          title: "User Uploaded an file (/upload)",
+          color: 0xff0000,
+          description: "User IP - " + "||" + ipAddress + "||",
+          image: {
+            url: uploadLink,
+          },
+        },
+      ],
+    };
+    axios.post(webhookUrl, data);
   }
 });
 
 app.post("/api/upload", cors(), authenticate, (req, res) => {
-  // If no file is uploaded
   if (!req.files) {
     res.status(404);
     res.json({ ERROR: "No Files Specified" });
     return;
   }
 
-  // Generates a random string of specified length
   function generateString(length) {
     const characters =
       "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -194,15 +212,12 @@ app.post("/api/upload", cors(), authenticate, (req, res) => {
     return result;
   }
 
-  // Split file name and get its extension
   let fileName = req.files.myFile.name;
   let splitter = fileName.split(".");
   let extension = splitter[splitter.length - 1];
 
-  // Generate a random string for the file name
   let DecidedFileName = generateString(20);
 
-  // Move the uploaded file to public/uploads folder
   req.files.myFile.mv(
     "./public/uploads/" + DecidedFileName + "." + extension,
     (error) => {
@@ -210,13 +225,11 @@ app.post("/api/upload", cors(), authenticate, (req, res) => {
     }
   );
 
-  // Calculate file size and set response status to 200
   let filesize = Math.round(req.files.myFile.size / 1e6) + " Megabytes";
   filesize === "0 Megabytes"
     ? (filesize = Math.round(req.files.myFile.size / 1000) + " Kilobytes")
     : res.status(200);
 
-  // Respond with file details based on app port number
   if (appPort === 80) {
     let fileLink = appLink + "/files/" + DecidedFileName + "." + extension;
     res.json({
@@ -248,13 +261,11 @@ app.post("/api/upload", cors(), authenticate, (req, res) => {
   }
 });
 
-// The GET endpoint "/files/*"
 app.get("/files/*", (req, res) => {
   let fileToGet = req.path.slice(7);
 
   try {
     if (fs.existsSync(`./public/uploads/${fileToGet}`)) {
-      //Random number
       function getRandomNumberBetween(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
       }
