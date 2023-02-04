@@ -65,16 +65,16 @@ This project is maded to make your work easier on Discord. It can easily share f
 
 
 <div align="center">
-<img src="https://i.imgur.com/Kcxquj9.png" alt="Demo" width="880" height="532">
+<img src="https://media.discordapp.net/attachments/1063448071167553568/1071423386108055613/image.png?width=972&height=584" alt="Demo" width="972" height="584">
 </div>
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
 
 
-### Built With
+### Tested On
 
-* [NodeJs v14](https://nodejs.org)
+* [NodeJs v16](https://nodejs.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,7 +130,7 @@ Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/Nic
 ## Acknowledgments
 
 * [Choose an Open Source License](https://choosealicense.com)
-* [NodeJs v14](https://nodejs.org)
+* [NodeJs v16](https://nodejs.org)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
