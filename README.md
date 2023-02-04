@@ -72,9 +72,9 @@ This project is maded to make your work easier on Discord. It can easily share f
 
 
 
-### Built With
+### Tested On
 
-* [NodeJs v14](https://nodejs.org)
+* [NodeJs v16](https://nodejs.org)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -130,7 +130,7 @@ Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/Nic
 ## Acknowledgments
 
 * [Choose an Open Source License](https://choosealicense.com)
-* [NodeJs v14](https://nodejs.org)
+* [NodeJs v16](https://nodejs.org)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
