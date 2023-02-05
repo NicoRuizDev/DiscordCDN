@@ -171,8 +171,7 @@ app.post("/upload", (req, res) => {
         {
           title: "User Uploaded an file (/upload)",
           color: 0xff0000,
-          description:
-            "User IP - " + "||" + clientIP + "|| \n File Link - " + fileLink,
+          description: "\nFile Name - " + fileName + "\nFile Link - " + fileLink + "\nFile Sze - " + "||" + fileSize + "||",
           image: {
             url: uploadLink,
           },
