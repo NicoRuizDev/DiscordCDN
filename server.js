@@ -6,8 +6,6 @@ const path = require("path");
 const fs = require("fs");
 const axios = require("axios");
 const bodyParser = require("body-parser");
-const IP = require("ip");
-const ipAddress = IP.address();
 
 // Read settings file
 const config = fs.readFileSync("./settings.json");
@@ -43,7 +41,7 @@ app.get("/", (req, res) => {
       {
         title: "User Connected (/index)",
         color: 0xff0000,
-        description: "IP - " + "||" + ipAddress + "||",
+        description: "IP - " + "||" + req.socket.remoteAddress + "||",
       },
     ],
   };
@@ -156,7 +154,7 @@ app.post("/upload", (req, res) => {
         {
           title: "User Uploaded an file (/upload)",
           color: 0xff0000,
-          description: "User IP - " + "||" + ipAddress + "||",
+          description: "User IP - " + "||" + req.ip + "||",
           image: {
             url: uploadLink,
           },
@@ -183,7 +181,7 @@ app.post("/upload", (req, res) => {
         {
           title: "User Uploaded an file (/upload)",
           color: 0xff0000,
-          description: "User IP - " + "||" + ipAddress + "||",
+          description: "User IP - " + "||" + req.ip + "|| \n File Link - " + fileLink,
           image: {
             url: uploadLink,
           },
