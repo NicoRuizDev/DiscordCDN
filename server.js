@@ -114,6 +114,9 @@ app.post("/upload", (req, res) => {
   let fileName = req.files.myFile.name;
   let splitter = fileName.split(".");
   let extension = splitter[splitter.length - 1];
+  const clientIP =
+    req.headers["x-forwarded-for"]?.split(",").shift() ||
+    req.socket?.remoteAddress;
 
   let DecidedFileName = generateString(20);
 
@@ -154,7 +157,7 @@ app.post("/upload", (req, res) => {
         {
           title: "User Uploaded an file (/upload)",
           color: 0xff0000,
-          description: "User IP - " + "||" + req.ip + "||",
+          description: "User IP - " + "||" + clientIP + "||",
           image: {
             url: uploadLink,
           },
@@ -181,7 +184,8 @@ app.post("/upload", (req, res) => {
         {
           title: "User Uploaded an file (/upload)",
           color: 0xff0000,
-          description: "User IP - " + "||" + req.ip + "|| \n File Link - " + fileLink,
+          description:
+            "User IP - " + "||" + clientIP + "|| \n File Link - " + fileLink,
           image: {
             url: uploadLink,
           },
