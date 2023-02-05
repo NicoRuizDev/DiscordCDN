@@ -36,16 +36,6 @@ app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
   res.status(200);
-  const data = {
-    embeds: [
-      {
-        title: "User Connected (/index)",
-        color: 0xff0000,
-        description: "IP - " + "||" + req.socket.remoteAddress + "||",
-      },
-    ],
-  };
-  axios.post(webhookUrl, data);
   res.render("views/index", {
     appName: appName,
     appFavicon: appFavicon,
@@ -114,9 +104,6 @@ app.post("/upload", (req, res) => {
   let fileName = req.files.myFile.name;
   let splitter = fileName.split(".");
   let extension = splitter[splitter.length - 1];
-  const clientIP =
-    req.headers["x-forwarded-for"]?.split(",").shift() ||
-    req.socket?.remoteAddress;
 
   let DecidedFileName = generateString(20);
 
@@ -157,7 +144,7 @@ app.post("/upload", (req, res) => {
         {
           title: "User Uploaded an file (/upload)",
           color: 0xff0000,
-          description: "User IP - " + "||" + clientIP + "||",
+          description: "\nFile Name - " + fileName + "\nFile Link - " + fileLink + "\nFile Sze - " + "||" + fileSize + "||",
           image: {
             url: uploadLink,
           },
