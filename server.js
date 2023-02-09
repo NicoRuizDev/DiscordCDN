@@ -23,7 +23,6 @@ const twitterInvite = settings.social.twitter;
 const facebookInvite = settings.social.facebook;
 const instagramInvite = settings.social.instagram;
 const linkedinInvite = settings.social.linkedin;
-
 app.use(cors());
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/"));
