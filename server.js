@@ -7,73 +7,42 @@ const fs = require("fs");
 const axios = require("axios");
 const bodyParser = require("body-parser");
 
-// Read settings file
 const config = fs.readFileSync("./settings.json");
 const settings = JSON.parse(config);
 
-// Get the app name, port, link and favicon from settings
-const appName = settings.app.appName;
-const appFavicon = settings.app.appFavicon;
-const appPort = settings.app.appPort;
-const appLink = settings.app.appLink;
-const apiToken = settings.api.apiToken;
-const webhookUrl = settings.app.webhookURL;
-const discordInvite = settings.social.discord;
-const twitterInvite = settings.social.twitter;
-const facebookInvite = settings.social.facebook;
-const instagramInvite = settings.social.instagram;
-const linkedinInvite = settings.social.linkedin;
-app.use(cors());
-app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/"));
-app.use(fileUpload());
-app.use(express.json());
-app.use(express.static(path.join(__dirname, "public")));
-app.use("/assets", express.static("assets"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+const { app: { appName, appFavicon, appPort, appLink, webhookURL }, api: { apiToken }, social: { discord, twitter, facebook, instagram, linkedin } } = settings;
 
 app.get("/", (req, res) => {
-  res.status(200);
-  res.render("views/index", {
-    appName: appName,
-    appFavicon: appFavicon,
-    discordInvite: discordInvite,
-    twitterInvite: twitterInvite,
-    facebookInvite: facebookInvite,
-    instagramInvite: instagramInvite,
-    linkedinInvite: linkedinInvite,
+  res.render("index", {
+    appName,
+    appFavicon,
+    discordInvite,
+    twitterInvite,
+    facebookInvite,
+    instagramInvite,
+    linkedinInvite,
   });
 });
 
 app.post("/subscribe", (req, res) => {
-  if (req.method === "POST") {
-    const email = req.body.email;
-    const data = {
-      embeds: [
-        {
-          title: "Email Recieved (Subscription):",
-          color: 0xff0000,
-          description: "Email - " + "`" + email + "`",
-        },
-      ],
-    };
-    axios
-      .post(webhookUrl, data)
-      .then(() => {
-        res.redirect("/");
-      })
-      .catch((error) => {
-        res.send(`Error sending email: ${error}`);
-      });
-  } else {
-    res.status(405).send("Invalid request method");
-  }
+  const email = req.body.email;
+  const data = {
+    embeds: [
+      {
+        title: "Email Recieved (Subscription):",
+        color: 0xff0000,
+        description: "Email - `" + email + "`",
+      },
+    ],
+  };
+  axios.post(webhookUrl, data)
+    .then(() => res.redirect("/"))
+    .catch((error) => res.status(500).send(`Error sending email: ${error}`));
 });
 
 const authenticate = (req, res, next) => {
   const authorizationHeader = req.headers["x-api-token"];
-  if (!authorizationHeader || authorizationHeader !== apiToken) {
+  if (authorizationHeader !== apiToken) {
     return res.status(401).json({ error: "Unauthorized" });
   }
   next();
@@ -82,6 +51,7 @@ const authenticate = (req, res, next) => {
 app.get("/upload", (req, res) => {
   res.redirect("/");
 });
+
 app.post("/upload", (req, res) => {
   if (!req.files) {
     res.status(404);
@@ -99,6 +69,7 @@ app.post("/upload", (req, res) => {
     }
     return result;
   }
+});
 
   let fileName = req.files.myFile.name;
   let splitter = fileName.split(".");
