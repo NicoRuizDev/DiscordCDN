@@ -12,6 +12,16 @@ const settings = JSON.parse(config);
 
 const { app: { appName, appFavicon, appPort, appLink, webhookURL }, api: { apiToken }, social: { discord, twitter, facebook, instagram, linkedin } } = settings;
 
+app.use(cors());
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "/"));
+app.use(fileUpload());
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "public")));
+app.use("/assets", express.static("assets"));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 app.get("/", (req, res) => {
   res.render("index", {
     appName,
@@ -74,7 +84,6 @@ app.post("/upload", (req, res) => {
   let fileName = req.files.myFile.name;
   let splitter = fileName.split(".");
   let extension = splitter[splitter.length - 1];
-
   let DecidedFileName = generateString(20);
 
   req.files.myFile.mv(
