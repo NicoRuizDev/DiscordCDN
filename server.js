@@ -81,89 +81,85 @@ app.post("/upload", (req, res) => {
   }
 });
 
-const fileName = req.files.myFile.name;
-const splitter = fileName.split(".");
-const extension = splitter[splitter.length - 1];
-const DecidedFileName = generateString(20);
+  let fileName = req.files.myFile.name;
+  let splitter = fileName.split(".");
+  let extension = splitter[splitter.length - 1];
+  let DecidedFileName = generateString(20);
 
-req.files.myFile.mv(`./public/uploads/${DecidedFileName}.${extension}`, error => {
-  if (error) console.log(error);
-});
+  req.files.myFile.mv(
+    "./public/uploads/" + DecidedFileName + "." + extension,
+    (error) => {
+      if (error) console.log(error);
+    }
+  );
 
-let fileSize = Math.round(req.files.myFile.size / 1e6) + " Megabytes";
-if (fileSize === "0 Megabytes") fileSize = Math.round(req.files.myFile.size / 1000) + " Kilobytes";
-else res.status(200);
+  let filesize = Math.round(req.files.myFile.size / 1e6) + " Megabytes";
 
-//Don't need to workaround , make it simple and one lined\\
-const fileLink = appPort === 80 || appPort === 443 ? `${appLink}/files/${DecidedFileName}.${extension}` : `${appLink}:${appPort}/files/${DecidedFileName}.${extension}`;
-const uploadLink = appPort === 80 || appPort === 443 ? `${appLink}/uploads/${DecidedFileName}.${extension}` : `${appLink}:${appPort}/uploads/${DecidedFileName}.${extension}`;
+  if (filesize === "0 Megabytes") {
+    filesize = Math.round(req.files.myFile.size / 1000) + " Kilobytes";
+  } else {
+    res.status(200);
+  }
 
-res.render("views/success.ejs", {
-  uploadLink,
-  fileLink,
-  fileSize,
-  fileName: `${DecidedFileName}.${extension}`,   //
-  appFavicon,                                    //--- Use this format, its optimal
-  appName,                                       //
-  discordInvite,
-  twitterInvite,
-  facebookInvite,
-  instagramInvite,
-  linkedinInvite,
-});
+  if (appPort === 80 || appPort === 443) {
+    let fileLink = appLink + "/files/" + DecidedFileName + "." + extension;
+    let uploadLink = appLink + "/uploads/" + DecidedFileName + "." + extension;
+
+    res.render("views/success.ejs", {
+      uploadLink: uploadLink,
+      fileLink: fileLink,
+      fileSize: filesize,
+      fileName: DecidedFileName + "." + extension,
+      appFavicon: appFavicon,
+      appName: appName,
+      discordInvite: discordInvite,
+      twitterInvite: twitterInvite,
+      facebookInvite: facebookInvite,
+      instagramInvite: instagramInvite,
+      linkedinInvite: linkedinInvite,
+    });
     const data = {
-  embeds: [
-    {
-      title: "User Uploaded a File (/upload)",
-      color: 0xff0000,
-      description: "\nFile Name - " + fileName + "\nFile Link - " + fileLink + "\nFile Size - " + "||" + fileSize + "||",
-      image: {
-        url: uploadLink,
-      },
-    },
-  ],
-};
+      embeds: [
+        {
+          title: "User Uploaded an file (/upload)",
+          color: 0xff0000,
+          description: "\nFile Name - " + fileName + "\nFile Link - " + fileLink + "\nFile Sze - " + "||" + fileSize + "||",
+          image: {
+            url: uploadLink,
+          },
+        },
+      ],
+    };
+    axios.post(webhookUrl, data);
+  } else {
+    let fileLink =
+      appLink + ":" + appPort + "/files/" + DecidedFileName + "." + extension;
+    let uploadLink =
+      appLink + ":" + appPort + "/uploads/" + DecidedFileName + "." + extension;
 
-axios.post(webhookUrl, data);
-
-let fileLink = appLink;
-let uploadLink = appLink;
-
-if (appPort === 80 || appPort === 443) {
-  fileLink += "/files/";
-  uploadLink += "/uploads/";
-} else {
-  fileLink += ":" + appPort + "/files/";
-  uploadLink += ":" + appPort + "/uploads/";
-}
-
-fileLink += DecidedFileName + "." + extension;
-uploadLink += DecidedFileName + "." + extension;
-
-res.render("views/success.ejs", {
-  fileLink: fileLink,
-  fileSize: fileSize,
-  fileName: DecidedFileName + "." + extension,
-  appFavicon: appFavicon,
-  appName: appName,
-  discordInvite: discordInvite,
+    res.render("views/success.ejs", {
+      fileLink: fileLink,
+      fileSize: filesize,
+      fileName: DecidedFileName + "." + extension,
+      appFavicon: appFavicon,
+      appName: appName,
+      discordInvite: discordInvite,
+    });
+    const data = {
+      embeds: [
+        {
+          title: "User Uploaded an file (/upload)",
+          color: 0xff0000,
+          description: "\nFile Name - " + fileName + "\nFile Link - " + fileLink + "\nFile Sze - " + "||" + fileSize + "||",
+          image: {
+            url: uploadLink,
+          },
+        },
+      ],
+    };
+    axios.post(webhookUrl, data);
+  }
 });
-
-const data = {
-  embeds: [
-    {
-      title: "User Uploaded a File (/upload)",
-      color: 0xff0000,
-      description: "\nFile Name - " + fileName + "\nFile Link - " + fileLink + "\nFile Size - " + "||" + fileSize + "||",
-      image: {
-        url: uploadLink,
-      },
-    },
-  ],
-};
-
-axios.post(webhookUrl, data);
-)}  // check this part : If its show error remove this `)}`
 
 app.post("/api/upload", cors(), authenticate, (req, res) => {
   if (!req.files) {
@@ -173,7 +169,8 @@ app.post("/api/upload", cors(), authenticate, (req, res) => {
   }
 
   function generateString(length) {
-    const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+    const characters =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     let result = "";
     const charactersLength = characters.length;
     for (let i = 0; i < length; i++) {
@@ -181,48 +178,55 @@ app.post("/api/upload", cors(), authenticate, (req, res) => {
     }
     return result;
   }
-});
 
   let fileName = req.files.myFile.name;
-let splitter = fileName.split(".");
-let extension = splitter[splitter.length - 1];
+  let splitter = fileName.split(".");
+  let extension = splitter[splitter.length - 1];
 
-let DecidedFileName = generateString(20);
+  let DecidedFileName = generateString(20);
 
-req.files.myFile.mv(
-  "./public/uploads/" + DecidedFileName + "." + extension,
-  (error) => {
-    if (error) console.log(error);
-  }                                                            //I removed the unnecessary line breaks and                                                               
-);                                                          // used ternary operator to shorten the filesize checking.
+  req.files.myFile.mv(
+    "./public/uploads/" + DecidedFileName + "." + extension,
+    (error) => {
+      if (error) console.log(error);
+    }
+  );
 
-let fileSize = Math.round(req.files.myFile.size / 1e6) + " Megabytes";
-if (fileSize === "0 Megabytes") {
-  fileSize = Math.round(req.files.myFile.size / 1000) + " Kilobytes";
-} else {
-  res.status(200);
-}
+  let filesize = Math.round(req.files.myFile.size / 1e6) + " Megabytes";
+  filesize === "0 Megabytes"
+    ? (filesize = Math.round(req.files.myFile.size / 1000) + " Kilobytes")
+    : res.status(200);
 
-
- if (appPort === 80 || appPort === 443) {
-  let fileLink = appLink + "/files/" + DecidedFileName + "." + extension;
-  res.json({
-    data: {
-      fileLink: fileLink,
-      fileSize: filesize,
-      fileName: DecidedFileName + "." + extension,
-    },
-  });
-} else {
-  let fileLink = appLink + ":" + appPort + "/files/" + DecidedFileName + "." + extension;
-  res.json({
-    data: {
-      fileLink: fileLink,
-      fileSize: filesize,
-      fileName: DecidedFileName + "." + extension,
-    },
-  });
-}
+  if (appPort === 80) {
+    let fileLink = appLink + "/files/" + DecidedFileName + "." + extension;
+    res.json({
+      data: {
+        fileLink: fileLink,
+        fileSize: filesize,
+        fileName: DecidedFileName + "." + extension,
+      },
+    });
+  } else if (appPort === 443) {
+    let fileLink = appLink + "/files/" + DecidedFileName + "." + extension;
+    res.json({
+      data: {
+        fileLink: fileLink,
+        fileSize: filesize,
+        fileName: DecidedFileName + "." + extension,
+      },
+    });
+  } else {
+    let fileLink =
+      appLink + ":" + appPort + "/files/" + DecidedFileName + "." + extension;
+    res.json({
+      data: {
+        fileLink: fileLink,
+        fileSize: filesize,
+        fileName: DecidedFileName + "." + extension,
+      },
+    });
+  }
+});
 
 app.get("/files/*", (req, res) => {
   let fileToGet = req.path.slice(7);
@@ -242,7 +246,8 @@ app.get("/files/*", (req, res) => {
         imageDirectLink: `${appLink}:${appPort}/uploads/${fileToGet}`,
         app_link: appLink,
         title: appTitle[getRandomNumberBetween(0, appTitle.length - 1)],
-        description: appDescription[getRandomNumberBetween(0, appDescription.length - 1)],
+        description:
+          appDescription[getRandomNumberBetween(0, appDescription.length - 1)],
       });
     } else {
       res.status(404);
@@ -259,5 +264,7 @@ app.use((req, res) => {
 });
 
 app.listen(appPort, (err) => {
-  err ? console.log(err) : console.log("Webserver Started on appPort: " + appPort);
+  err
+    ? console.log(err)
+    : console.log("Webserver Started on appPort: " + appPort);
 });
