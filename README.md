@@ -30,7 +30,7 @@
   <p align="center">
     A CDN which can be used to display embed images on Discord!
     <br />
-    <a href="https://docs.nicoruiz.dev/"><strong>Explore the docs »</strong></a>
+    <a href="https://docs.nicoruiz.dev/docs/category/discord-cdn"><strong>Explore the docs »</strong></a>
     <br />
     <br />
     <a href="https://cdn.nicoruiz.dev">View Demo</a>
@@ -83,7 +83,7 @@ This project is maded to make your work easier on Discord. It can easily share f
 <!-- DOCUMENTATION -->
 ## Documentation
 
-Documentation of cdn is hosted on our documentation page: [https://docs.nicoruiz.dev/](https://docs.nicoruiz.dev/)
+Documentation of cdn is hosted on our documentation page: [https://docs.nicoruiz.dev/docs/category/discord-cdn](https://docs.nicoruiz.dev/docs/category/discord-cdn)
 
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -129,7 +129,7 @@ Project Link: [https://github.com/NicoRuizDev/DiscordCDN](https://github.com/Nic
 <!-- ACKNOWLEDGMENTS -->
 ## Acknowledgments
 
-* [Choose an Open Source License](https://choosealicense.com)
+
 * [NodeJs v16](https://nodejs.org)
 
 
